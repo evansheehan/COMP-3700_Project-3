@@ -5,6 +5,7 @@ public class MessageModel {
 
     public static final int GET_USER = 10;
     public static final int PUT_USER = 11;
+    public static final int GET_ACTIVE_USER = 12;
 
     public static final int GET_PRODUCT = 100;
     public static final int PUT_PRODUCT = 101;

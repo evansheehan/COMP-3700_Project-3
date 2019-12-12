@@ -148,6 +148,19 @@ public class StoreServer {
                     out.println(gson.toJson(msg));
                 }
 
+                if (msg.code == MessageModel.GET_ACTIVE_USER) {
+                    System.out.println("GET active user");
+                    UserModel u = activeUsers.get((msg.ssid));
+                    if (u == null) {
+                        msg.code = MessageModel.OPERATION_FAILED;
+                    }
+                    else {
+                        msg.code = MessageModel.OPERATION_OK; // load successfully!!!
+                        msg.data = gson.toJson(u);
+                    }
+                    out.println(gson.toJson(msg));
+                }
+
                 if (msg.code == MessageModel.PUT_USER) {
                     UserModel u = gson.fromJson(msg.data, UserModel.class);
                     System.out.println("PUT command with User = " + u);

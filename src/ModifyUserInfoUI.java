@@ -261,11 +261,15 @@ public class ModifyUserInfoUI {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
 
+//            MessageModel msg = new MessageModel();
+//            msg.code = MessageModel.GET_ACTIVE_USER;
+
             String username = txtUsername.getText();
             String password = txtPassword.getText();
             Gson gson = new Gson();
 
             if (username.length() == 0) {
+//                username = StoreServer.
                 JOptionPane.showMessageDialog(null, "Username field left empty. Previous " +
                         "username will be stored.");
                 return;

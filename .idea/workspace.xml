@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8576bed3-2655-4048-af3e-1ac27e9ba67f" name="Default Changelist" comment="" />
+    <list default="true" id="8576bed3-2655-4048-af3e-1ac27e9ba67f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ModifyUserInfoUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ModifyUserInfoUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StoreServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModifyUserInfoUI$SaveButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModifyUserInfoUI$SaveButtonListener.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +22,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1UtlgbwjSghN8rckYf8vi7Xx0xi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -77,23 +89,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576183884312</updated>
-      <workItem from="1576183887631" duration="5593000" />
+      <workItem from="1576183887631" duration="8769000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/StoreManager.java</url>
-          <line>51</line>
-          <properties class="StoreManager" method="main">
+          <url>file://$PROJECT_DIR$/src/SQLiteDataAdapter.java</url>
+          <line>204</line>
+          <properties class="SQLiteDataAdapter" method="loadUser">
             <option name="EMULATED" value="true" />
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
