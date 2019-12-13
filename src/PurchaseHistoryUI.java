@@ -1,9 +1,11 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class PurchaseHistoryUI {
 
     public JFrame view;
-    public JList purchases;
+    //public JList purchases;
+    public JTable purchaseTable;
 
     public UserModel user = null;
 
@@ -33,18 +35,36 @@ public class PurchaseHistoryUI {
         title.setHorizontalAlignment(SwingConstants.CENTER);
         view.getContentPane().add(title);
 
-        PurchaseHistoryModel list = StoreManager.getInstance().getDataAdapter().loadPurchaseHistory(user.mCustomerID);
-        DefaultListModel<String> data = new DefaultListModel<>();
+        PurchaseListModel list = StoreManager.getInstance().getDataAdapter().loadPurchaseHistory(user.mCustomerID);
+//        DefaultListModel<String> data = new DefaultListModel<>();
+        DefaultTableModel tableData = new DefaultTableModel();
+//        String[] columnNames = {"PurchaseID", "ProductID", "Total"};
+//        data.addElement(String.format("PurchaseId: %d, ProductId: %d, Total: %8.2f",
+//                purchase.mPurchaseID,
+//                purchase.mProductID,
+//                purchase.mTotal));
 
-        for (PurchaseModel purchase : list.purchases)
-            data.addElement(String.format("PurchasedId: %d, ProductId %d, Total: %0.2f",
-                    purchase.mPurchaseID,
-                    purchase.mProductID,
-                    purchase.mTotal));
+        tableData.addColumn("PurchaseID");
+        tableData.addColumn("ProductID");
+        tableData.addColumn("Product Name");
+        tableData.addColumn("Total");
 
-        purchases = new JList(data);
+        for (PurchaseModel purchase : list.purchases) {
+            Object[] row = new Object[tableData.getColumnCount()];
+            row[0] = purchase.mPurchaseID;
+            row[1] = purchase.mProductID;
+            ProductModel product = StoreManager.getInstance().getDataAdapter().loadProduct(purchase.mProductID);
+            row[2] = product.mName;
+            row[3] = purchase.mTotal;
+            tableData.addRow(row);
+        }
 
-        JScrollPane scrollableList = new JScrollPane(purchases);
+//        purchases = new JList(data);
+
+        purchaseTable = new JTable(tableData);
+
+        JScrollPane scrollableList = new JScrollPane(purchaseTable);
+
         view.getContentPane().add(scrollableList);
 
 

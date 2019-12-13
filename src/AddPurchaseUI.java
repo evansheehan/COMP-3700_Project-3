@@ -1,5 +1,3 @@
-import com.google.gson.Gson;
-
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -106,7 +104,6 @@ public class AddPurchaseUI {
 
         private void process() {
             String s = txtProductID.getText();
-            Gson gson = new Gson();
 
             if (s.length() == 0) {
                 labProductName.setText("Product Name: [not specified!]");
@@ -125,26 +122,7 @@ public class AddPurchaseUI {
                 return;
             }
 
-            try {
-                MessageModel msg = new MessageModel();
-                msg.code = MessageModel.GET_PRODUCT;
-                msg.data = Integer.toString(purchase.mProductID);
-
-                msg = StoreManager.getInstance().getNetworkAdapter().exchange(msg, "localhost", 1000);
-
-                if (msg.code == MessageModel.OPERATION_FAILED) {
-                    JOptionPane.showMessageDialog(null, "Product does not exist!");
-                }
-                else {
-                    product = gson.fromJson(msg.data, ProductModel.class);
-                    /*txtName.setText(product.mName);
-                    txtPrice.setText(Double.toString(product.mPrice));
-                    txtQuantity.setText(Double.toString(product.mQuantity));*/
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            product = StoreManager.getInstance().getDataAdapter().loadProduct(purchase.mProductID);
 
             if (product == null) {
                 JOptionPane.showMessageDialog(null,
@@ -176,7 +154,6 @@ public class AddPurchaseUI {
 
         private void process() {
             String s = txtCustomerID.getText();
-            Gson gson = new Gson();
 
             if (s.length() == 0) {
                 labCustomerName.setText("Customer Name: [not specified!]");
@@ -195,26 +172,7 @@ public class AddPurchaseUI {
                 return;
             }
 
-            try {
-                MessageModel msg = new MessageModel();
-                msg.code = MessageModel.GET_CUSTOMER;
-                msg.data = Integer.toString(purchase.mCustomerID);
-
-                msg = StoreManager.getInstance().getNetworkAdapter().exchange(msg, "localhost", 1000);
-
-                if (msg.code == MessageModel.OPERATION_FAILED) {
-                    JOptionPane.showMessageDialog(null, "Customer NOT exists!");
-                }
-                else {
-                    customer = gson.fromJson(msg.data, CustomerModel.class);
-                    /*txtName.setText(customer.mName);
-                    txtPhone.setText(customer.mPhone);
-                    txtAddress.setText(customer.mAddress);*/
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            customer = StoreManager.getInstance().getDataAdapter().loadCustomer(purchase.mCustomerID);
 
             if (customer == null) {
                 JOptionPane.showMessageDialog(null,
@@ -294,7 +252,6 @@ public class AddPurchaseUI {
         public void actionPerformed(ActionEvent actionEvent) {
 
             String id = txtPurchaseID.getText();
-            Gson gson = new Gson();
 
             if (id.length() == 0) {
                 JOptionPane.showMessageDialog(null, "PurchaseID cannot be null!");
@@ -308,24 +265,11 @@ public class AddPurchaseUI {
                 return;
             }
 
-            try {
-                MessageModel msg = new MessageModel();
-                msg.code = MessageModel.PUT_PURCHASE;
-                msg.data = gson.toJson(purchase);
-
-                msg = StoreManager.getInstance().getNetworkAdapter().exchange(msg, "localhost", 1000);
-
-                if (msg.code == MessageModel.OPERATION_FAILED) {
-                    JOptionPane.showMessageDialog(null, "Purchase is NOT saved successfully!");
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Purchase is SAVED successfully!");
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            int res = StoreManager.getInstance().getDataAdapter().savePurchase(purchase);
+            if (res == SQLiteDataAdapter.PURCHASE_SAVE_FAILED)
+                JOptionPane.showMessageDialog(null, "Purchase NOT added successfully! Duplicate product ID!");
+            else
+                JOptionPane.showMessageDialog(null, "Purchase added successfully!" + purchase);
         }
     }
 

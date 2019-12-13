@@ -126,11 +126,6 @@ public class LoginUI {
                     ManagerUI ui = new ManagerUI();
                     ui.view.setVisible(true);
                 }
-                else if (user.mUserType == UserModel.ADMIN) {
-                    AdminUI ui = new AdminUI();
-                    System.out.println("MainUI = " + ui);
-                    ui.view.setVisible(true);
-                }
                 else if (user.mUserType == UserModel.CASHIER) {
                     CashierUI ui = new CashierUI();
                     System.out.println("MainUI = " + ui);

@@ -2,15 +2,12 @@ import com.google.gson.Gson;
 
 import java.io.PrintWriter;
 import java.net.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class StoreServer {
-    static String dbfile = "./data/store.db";
+    static String dbfile = "C:\\Users\\ttn0007\\Desktop\\StoreManager\\data\\store.db";
 
     public static void main(String[] args) {
 
@@ -90,89 +87,23 @@ public class StoreServer {
 
                 if (msg.code == MessageModel.GET_PURCHASE_LIST) {
                     int id = Integer.parseInt(msg.data);
-                    PurchaseHistoryModel res = adapter.loadPurchaseHistory(id);
+                    PurchaseListModel res = adapter.loadPurchaseHistory(id);
                     msg.code = MessageModel.OPERATION_OK;
                     msg.data = gson.toJson(res);
                     out.println(gson.toJson(msg));  // answer get purchase history!!!
                 }
 
-                if (msg.code == MessageModel.PUT_PURCHASE) {
-                    PurchaseModel p = gson.fromJson(msg.data, PurchaseModel.class);
-                    System.out.println("PUT command with Purchase = " + p);
-                    int res = adapter.savePurchase(p);
-                    if (res == IDataAdapter.PURCHASE_SAVE_OK) {
-                        msg.code = MessageModel.OPERATION_OK;
-                    }
-                    else {
-                        msg.code = MessageModel.OPERATION_FAILED;
-                    }
-                    out.println(gson.toJson(msg));
+                if (msg.code == MessageModel.SEARCH_PRODUCT) {
+                    String name = "Apple";
+                    double min = 0, max = 10000;
+                    ProductListModel res = adapter.searchProduct(name, min, max);
+                    msg.code = MessageModel.OPERATION_OK;
+                    msg.data = gson.toJson(res);
+                    out.println(gson.toJson(msg));  // answer get purchase history!!!
                 }
 
-                if (msg.code == MessageModel.GET_CUSTOMER) {
-                    System.out.println("GET customer with id = " + msg.data);
-                    CustomerModel c = adapter.loadCustomer(Integer.parseInt(msg.data));
-                    if (c == null) {
-                        msg.code = MessageModel.OPERATION_FAILED;
-                    }
-                    else {
-                        msg.code = MessageModel.OPERATION_OK; // load successfully!!!
-                        msg.data = gson.toJson(c);
-                    }
-                    out.println(gson.toJson(msg));
-                }
 
-                if (msg.code == MessageModel.PUT_CUSTOMER) {
-                    CustomerModel c = gson.fromJson(msg.data, CustomerModel.class);
-                    System.out.println("PUT command with Product = " + c);
-                    int res = adapter.saveCustomer(c);
-                    if (res == IDataAdapter.CUSTOMER_SAVE_OK) {
-                        msg.code = MessageModel.OPERATION_OK;
-                    }
-                    else {
-                        msg.code = MessageModel.OPERATION_FAILED;
-                    }
-                    out.println(gson.toJson(msg));
-                }
-
-                if (msg.code == MessageModel.GET_USER) {
-                    System.out.println("GET user with id = " + msg.data);
-                    UserModel u = adapter.loadUser(msg.data);
-                    if (u == null) {
-                        msg.code = MessageModel.OPERATION_FAILED;
-                    }
-                    else {
-                        msg.code = MessageModel.OPERATION_OK; // load successfully!!!
-                        msg.data = gson.toJson(u);
-                    }
-                    out.println(gson.toJson(msg));
-                }
-
-                if (msg.code == MessageModel.GET_ACTIVE_USER) {
-                    System.out.println("GET active user");
-                    UserModel u = activeUsers.get((msg.ssid));
-                    if (u == null) {
-                        msg.code = MessageModel.OPERATION_FAILED;
-                    }
-                    else {
-                        msg.code = MessageModel.OPERATION_OK; // load successfully!!!
-                        msg.data = gson.toJson(u);
-                    }
-                    out.println(gson.toJson(msg));
-                }
-
-                if (msg.code == MessageModel.PUT_USER) {
-                    UserModel u = gson.fromJson(msg.data, UserModel.class);
-                    System.out.println("PUT command with User = " + u);
-                    int res = adapter.saveUser(u);
-                    if (res == IDataAdapter.USER_SAVE_OK) {
-                        msg.code = MessageModel.OPERATION_OK;
-                    } else {
-                        msg.code = MessageModel.OPERATION_FAILED;
-                    }
-                    out.println(gson.toJson(msg));
-                }
-
+                // add responding to GET_USER, PUT_USER,...
             }
 
         } catch (Exception e) {

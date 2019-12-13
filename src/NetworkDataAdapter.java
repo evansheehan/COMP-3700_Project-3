@@ -1,5 +1,8 @@
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NetworkDataAdapter implements IDataAdapter {
 
     String host = "localhost";
@@ -68,7 +71,7 @@ public class NetworkDataAdapter implements IDataAdapter {
     }
 
     @Override
-    public PurchaseHistoryModel loadPurchaseHistory(int customerID) {
+    public PurchaseListModel loadPurchaseHistory(int customerID) {
         msg.code = MessageModel.GET_PURCHASE_LIST;
         msg.data = Integer.toString(customerID);
 
@@ -81,7 +84,26 @@ public class NetworkDataAdapter implements IDataAdapter {
         if (msg.code == MessageModel.OPERATION_FAILED)
             return null;
         else {
-            return gson.fromJson(msg.data, PurchaseHistoryModel.class);
+            return gson.fromJson(msg.data, PurchaseListModel.class);
+        }
+    }
+
+    @Override
+    public ProductListModel searchProduct(String name, double minPrice, double maxPrice) {
+        msg.code = MessageModel.SEARCH_PRODUCT;
+        msg.data = "name";
+
+        try {
+            msg = adapter.exchange(msg, host, port);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (msg.code == MessageModel.OPERATION_FAILED)
+            return null;
+        else {
+
+            return gson.fromJson(msg.data, ProductListModel.class);
         }
     }
 

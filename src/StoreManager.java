@@ -2,10 +2,9 @@ import javax.swing.*;
 
 public class StoreManager {
     public static String dbms = "SQLite";
-    public static String path = "./data/store.db";
+    public static String path = "C:\\Users\\ttn0007\\Desktop\\StoreManager\\data\\store.db";
 
     IDataAdapter dataAdapter = null;
-    INetworkAdapter networkAdapter = null;
     private static StoreManager instance = null;
 
     public static StoreManager getInstance() {
@@ -27,8 +26,6 @@ public class StoreManager {
 
         dataAdapter.connect(dbfile);
 
-        networkAdapter = new SocketNetworkAdapter();
-
     }
 
     public IDataAdapter getDataAdapter() {
@@ -37,10 +34,6 @@ public class StoreManager {
 
     public void setDataAdapter(IDataAdapter a) {
         dataAdapter = a;
-    }
-
-    public INetworkAdapter getNetworkAdapter() {
-        return networkAdapter;
     }
 
 

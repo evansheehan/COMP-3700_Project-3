@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class OracleDataAdapter implements IDataAdapter {
     public int connect(String dbfile) {
@@ -27,7 +28,12 @@ public class OracleDataAdapter implements IDataAdapter {
     }
 
     @Override
-    public PurchaseHistoryModel loadPurchaseHistory(int customerID) {
+    public PurchaseListModel loadPurchaseHistory(int customerID) {
+        return null;
+    }
+
+    @Override
+    public ProductListModel searchProduct(String name, double minPrice, double maxPrice) {
         return null;
     }
 

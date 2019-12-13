@@ -12,7 +12,7 @@ public class CustomerUI {
     public JButton btnMakePurchase = new JButton("Make a Purchase");
     public JButton btnCancelPurchase = new JButton("Cancel a Purchase");
     public JButton btnViewPurchases = new JButton("View Purchase History");
-    public JButton btnChangeUsernamePassword = new JButton("Change Username/Password");
+    public JButton btnSeachProduct = new JButton("Search Product");
 
     public CustomerUI(UserModel user) {
 
@@ -40,7 +40,7 @@ public class CustomerUI {
         panelButtons.add(btnMakePurchase);
         panelButtons.add(btnViewPurchases);
         panelButtons.add(btnCancelPurchase);
-        panelButtons.add(btnChangeUsernamePassword);
+        panelButtons.add(btnSeachProduct);
 
         view.getContentPane().add(panelButtons);
 
@@ -61,13 +61,13 @@ public class CustomerUI {
             }
         });
 
-        btnChangeUsernamePassword.addActionListener(new ActionListener() {
+        btnSeachProduct.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                ModifyUserInfoUI ui = new ModifyUserInfoUI();
-                ui.run();
+            public void actionPerformed(ActionEvent actionEvent) {
+                ProductSearchUI ui = new ProductSearchUI(user);
+                ui.view.setVisible(true);
             }
-        });
+        } );
 
     }
 }

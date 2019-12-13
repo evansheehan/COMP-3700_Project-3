@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQLiteDataAdapter implements IDataAdapter {
 
@@ -80,44 +82,12 @@ public class SQLiteDataAdapter implements IDataAdapter {
         return PRODUCT_SAVE_OK;
     }
 
-
-    public PurchaseModel loadPurchase(int purchaseID) {
-        PurchaseModel purchase = null;
-
-        try {
-            String sql = "SELECT PurchaseID, CustomerID, ProductID, Price, Quantity, Cost, Tax, Total, Date FROM Purchases WHERE PurchaseID = " + purchaseID;
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            if (rs.next()) {
-                purchase = new PurchaseModel();
-                purchase.mProductID = rs.getInt("PurchaseID");
-                purchase.mCustomerID = rs.getInt("CustomerID");
-                purchase.mProductID = rs.getInt("ProductID");
-                purchase.mPrice = rs.getDouble("Price");
-                purchase.mQuantity = rs.getDouble("Quantity");
-                purchase.mCost = rs.getDouble("Cost");
-                purchase.mTax = rs.getDouble("Tax");
-                purchase.mTotal = rs.getDouble("Total");
-                purchase.mDate = rs.getString("Date");
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return purchase;
-    }
     @Override
     public int savePurchase(PurchaseModel purchase) {
         try {
-            Statement stmt = conn.createStatement();
-            PurchaseModel p = loadPurchase(purchase.mPurchaseID);
-            if (p != null) {
-                stmt.executeUpdate("DELETE FROM Purchases WHERE PurchaseID = " + purchase.mPurchaseID);
-            }
-
-            String sql = "INSERT INTO Purchases(PurchaseID, CustomerID, ProductID, Price, Quantity, Cost, Tax, Total, Date) VALUES " + purchase;
+            String sql = "INSERT INTO Purchases VALUES " + purchase;
             System.out.println(sql);
-
+            Statement stmt = conn.createStatement();
             stmt.executeUpdate(sql);
 
         } catch (Exception e) {
@@ -132,8 +102,8 @@ public class SQLiteDataAdapter implements IDataAdapter {
     }
 
     @Override
-    public PurchaseHistoryModel loadPurchaseHistory(int id) {
-        PurchaseHistoryModel res = new PurchaseHistoryModel();
+    public PurchaseListModel loadPurchaseHistory(int id) {
+        PurchaseListModel res = new PurchaseListModel();
         try {
             String sql = "SELECT * FROM Purchases WHERE CustomerId = " + id;
             Statement stmt = conn.createStatement();
@@ -159,6 +129,29 @@ public class SQLiteDataAdapter implements IDataAdapter {
         return res;
     }
 
+    @Override
+    public ProductListModel searchProduct(String name, double minPrice, double maxPrice) {
+        ProductListModel res = new ProductListModel();
+        try {
+            String sql = "SELECT * FROM Products WHERE Name LIKE \'%" + name + "%\' "
+                    + "AND Price >= " + minPrice + " AND Price <= " + maxPrice;
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ProductModel product = new ProductModel();
+                product.mProductID = rs.getInt("ProductID");
+                product.mName = rs.getString("Name");
+                product.mPrice = rs.getDouble("Price");
+                product.mQuantity = rs.getDouble("Quantity");
+                res.products.add(product);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
     public CustomerModel loadCustomer(int id) {
         CustomerModel customer = null;
 
@@ -178,28 +171,6 @@ public class SQLiteDataAdapter implements IDataAdapter {
             System.out.println(e.getMessage());
         }
         return customer;
-    }
-    public int saveCustomer(CustomerModel customer) {
-        try {
-            Statement stmt = conn.createStatement();
-            CustomerModel c = loadCustomer(customer.mCustomerID);
-            if (c != null) {
-                stmt.executeUpdate("DELETE FROM Customers WHERE CustomerID = " + customer.mCustomerID);
-            }
-
-            String sql = "INSERT INTO Customers(CustomerID, Name, Phone, Address) VALUES " + customer;
-            System.out.println(sql);
-
-            stmt.executeUpdate(sql);
-
-        } catch (Exception e) {
-            String msg = e.getMessage();
-            System.out.println(msg);
-            if (msg.contains("UNIQUE constraint failed"))
-                return CUSTOMER_SAVE_FAILED;
-        }
-
-        return CUSTOMER_SAVE_OK;
     }
 
     public UserModel loadUser(String username) {
@@ -223,28 +194,6 @@ public class SQLiteDataAdapter implements IDataAdapter {
             System.out.println(e.getMessage());
         }
         return user;
-    }
-
-    public int saveUser(UserModel user) {
-        try {
-            Statement stmt = conn.createStatement();
-            UserModel u = loadUser(user.mUsername);
-            if (u != null) {
-                stmt.executeUpdate("DELETE FROM Users WHERE Username = " + user.mUsername);
-            }
-
-            String sql = "INSERT INTO Users(Username, Password, Fullname, Usertype) VALUES " + user;
-            System.out.println(sql);
-
-            stmt.executeUpdate(sql);
-
-        } catch (Exception e) {
-            String msg = e.getMessage();
-            System.out.println(msg);
-            if (msg.contains("UNIQUE constraint failed"))
-                return USER_SAVE_FAILED;
-        }
-        return USER_SAVE_OK;
     }
 
 }

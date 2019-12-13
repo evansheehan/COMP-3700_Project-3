@@ -67,7 +67,7 @@ public class ManageProductUI {
 
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            Gson gson = new Gson();
+            ProductModel product = new ProductModel();
             String id = txtProductID.getText();
 
             if (id.length() == 0) {
@@ -76,34 +76,23 @@ public class ManageProductUI {
             }
 
             try {
-                int i = Integer.parseInt(id);
+                product.mProductID = Integer.parseInt(id);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "ProductID is invalid!");
                 return;
             }
 
+            // call data access!
 
-            try {
-                MessageModel msg = new MessageModel();
-                msg.code = MessageModel.GET_PRODUCT;
-                msg.data = id;
+            product = StoreManager.getInstance().getDataAdapter().loadProduct(product.mProductID);
 
-                msg = StoreManager.getInstance().getNetworkAdapter().exchange(msg, "localhost", 1000);
-
-                if (msg.code == MessageModel.OPERATION_FAILED) {
-                    JOptionPane.showMessageDialog(null, "Product does not exist!");
-                }
-                else {
-                    ProductModel product = gson.fromJson(msg.data, ProductModel.class);
-                    txtName.setText(product.mName);
-                    txtPrice.setText(Double.toString(product.mPrice));
-                    txtQuantity.setText(Double.toString(product.mQuantity));
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (product == null) {
+                JOptionPane.showMessageDialog(null, "Product NOT exists!");
+            } else {
+                txtName.setText(product.mName);
+                txtPrice.setText(Double.toString(product.mPrice));
+                txtQuantity.setText(Double.toString(product.mQuantity));
             }
-
         }
     }
 
@@ -111,7 +100,6 @@ public class ManageProductUI {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             ProductModel product = new ProductModel();
-            Gson gson = new Gson();
             String id = txtProductID.getText();
 
             if (id.length() == 0) {
@@ -150,24 +138,13 @@ public class ManageProductUI {
                 return;
             }
 
-            try {
-                MessageModel msg = new MessageModel();
-                msg.code = MessageModel.PUT_PRODUCT;
-                msg.data = gson.toJson(product);
 
-                msg = StoreManager.getInstance().getNetworkAdapter().exchange(msg, "localhost", 1000);
+            int  res = StoreManager.getInstance().getDataAdapter().saveProduct(product);
 
-                if (msg.code == MessageModel.OPERATION_FAILED) {
-                    JOptionPane.showMessageDialog(null, "Product is NOT saved successfully!");
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Product is SAVED successfully!");
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            if (res == IDataAdapter.PRODUCT_SAVE_FAILED)
+                JOptionPane.showMessageDialog(null, "Product is NOT saved successfully!");
+            else
+                JOptionPane.showMessageDialog(null, "Product is SAVED successfully!");
         }
     }
 }

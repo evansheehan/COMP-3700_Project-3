@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8576bed3-2655-4048-af3e-1ac27e9ba67f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ProductListModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductSearchUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PurchaseListModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/store.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/store.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManageUsersUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageUsersUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AdminUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AdminUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AdminUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MessageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MessageModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ModifyUserInfoUI$SaveButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModifyUserInfoUI$SaveButtonListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/StoreServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoreServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddPurchaseUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddPurchaseUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IDataAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageCustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageCustomerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageProductUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageProductUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NetworkDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkDataAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OracleDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OracleDataAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PurchaseHistoryUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PurchaseHistoryUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SQLiteDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQLiteDataAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StoreServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +35,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1UtlgbwjSghN8rckYf8vi7Xx0xi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -93,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576183884312</updated>
-      <workItem from="1576183887631" duration="16530000" />
+      <workItem from="1576183887631" duration="17072000" />
     </task>
     <task id="LOCAL-00001" summary="Some work on User function to change un/pw">
       <created>1576193162901</created>
@@ -109,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576196373213</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Partial implementation of admin functions">
+      <created>1576274984142</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1576274984142</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,15 +145,16 @@
     <MESSAGE value="Added some work to user change un/pw function" />
     <MESSAGE value="Some work on User function to change un/pw" />
     <MESSAGE value="Added framework for new admin functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added framework for new admin functions" />
+    <MESSAGE value="Partial implementation of admin functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Partial implementation of admin functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/SQLiteDataAdapter.java</url>
-          <line>204</line>
-          <properties class="SQLiteDataAdapter" method="loadUser">
+          <line>175</line>
+          <properties class="SQLiteDataAdapter">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="5" />
