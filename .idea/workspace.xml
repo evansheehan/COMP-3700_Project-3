@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8576bed3-2655-4048-af3e-1ac27e9ba67f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ManageUsersUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/store.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/store.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageUsersUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageUsersUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AdminUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AdminUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AdminUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MessageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MessageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModifyUserInfoUI$SaveButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModifyUserInfoUI$SaveButtonListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoreServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StoreServer.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576183884312</updated>
-      <workItem from="1576183887631" duration="11743000" />
+      <workItem from="1576183887631" duration="16530000" />
     </task>
     <task id="LOCAL-00001" summary="Some work on User function to change un/pw">
       <created>1576193162901</created>
@@ -95,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576193162901</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added framework for new admin functions">
+      <created>1576196373213</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576196373213</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,7 +129,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added some work to user change un/pw function" />
     <MESSAGE value="Some work on User function to change un/pw" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some work on User function to change un/pw" />
+    <MESSAGE value="Added framework for new admin functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added framework for new admin functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
