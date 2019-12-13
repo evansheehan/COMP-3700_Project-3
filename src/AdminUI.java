@@ -8,8 +8,7 @@ public class AdminUI {
 
     public JFrame view;
 
-    public JButton btnAddUser = new JButton("Add User");
-    public JButton btnDeleteUser = new JButton("Delete User");
+    public JButton btnManageUsers = new JButton("Manager Users");
     public JButton btnSystemConfig = new JButton("System Configuration");
 
     public AdminUI() {
@@ -32,23 +31,16 @@ public class AdminUI {
         view.getContentPane().add(panelUser);
 
         JPanel panelButtons = new JPanel(new FlowLayout());
-        panelButtons.add(btnAddUser);
-        panelButtons.add(btnDeleteUser);
+        panelButtons.add(btnManageUsers);
         panelButtons.add(btnSystemConfig);
 
         view.getContentPane().add(panelButtons);
 
-        btnAddUser.addActionListener(new ActionListener() {
+        btnManageUsers.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
-            }
-        });
-
-        btnDeleteUser.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-
+                ManageUsersUI ui = new ManageUsersUI();
+                ui.run();
             }
         });
 
