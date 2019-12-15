@@ -97,50 +97,31 @@ public class LoginUI {
                 return;
             }
 
-            Gson gson = new Gson();
+           user = StoreManager.getInstance().getDataAdapter().loadUser(user.mUsername);
 
-            MessageModel msg = new MessageModel();
-            msg.code = MessageModel.LOGIN;
-            msg.data = gson.toJson(user);
-
-            SocketNetworkAdapter net = new SocketNetworkAdapter();
-
-            try {
-                msg = net.exchange(msg, "localhost", 1000);
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            System.out.println("User = " + user);
+            if (user.mUserType == UserModel.MANAGER) {
+                ManagerUI ui = new ManagerUI();
+                ui.view.setVisible(true);
             }
-
-            if (msg.code == MessageModel.OPERATION_FAILED)
-                JOptionPane.showMessageDialog(null, "Invalid username or password! Access denied!");
+            else if (user.mUserType == UserModel.CASHIER) {
+                CashierUI ui = new CashierUI();
+                System.out.println("MainUI = " + ui);
+                ui.view.setVisible(true);
+            }
+            else if (user.mUserType == UserModel.CUSTOMER) {
+                CustomerUI ui = new CustomerUI(user);
+                System.out.println("MainUI = " + ui);
+                ui.view.setVisible(true);
+            }
+            else if (user.mUserType == UserModel.ADMIN) {
+                AdminUI ui = new AdminUI();
+                System.out.println("MainUI = " + ui);
+                ui.view.setVisible(true);
+            }
             else {
-                accessToken = msg.ssid;
-                JOptionPane.showMessageDialog(null, "Access granted with access token = " + accessToken);
-                view.setVisible(false);
-
-
-                user = gson.fromJson(msg.data, UserModel.class);
-
-                System.out.println("User = " + user);
-                if (user.mUserType == UserModel.MANAGER) {
-                    ManagerUI ui = new ManagerUI();
-                    ui.view.setVisible(true);
-                }
-                else if (user.mUserType == UserModel.CASHIER) {
-                    CashierUI ui = new CashierUI();
-                    System.out.println("MainUI = " + ui);
-                    ui.view.setVisible(true);
-                }
-                else if (user.mUserType == UserModel.CUSTOMER) {
-                    CustomerUI ui = new CustomerUI(user);
-                    System.out.println("MainUI = " + ui);
-                    ui.view.setVisible(true);
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Usertype NOT supported!");
-                    view.setVisible(true);
-                }
-
+                JOptionPane.showMessageDialog(null, "Usertype NOT supported!");
+                view.setVisible(true);
             }
 
         }

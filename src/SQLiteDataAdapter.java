@@ -82,6 +82,33 @@ public class SQLiteDataAdapter implements IDataAdapter {
         return PRODUCT_SAVE_OK;
     }
 
+    public PurchaseModel loadPurchase(int purchaseID) {
+        PurchaseModel purchase = null;
+
+        try {
+            String sql = "SELECT PurchaseId, CustomerId, ProductId, Price," +
+                    "Quantity, Cost, Tax, Total, Date FROM Purchases WHERE PurchaseId = " + purchaseID;
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                purchase = new PurchaseModel();
+                purchase.mPurchaseID = rs.getInt("PurchaseId");
+                purchase.mCustomerID = rs.getInt("CustomerId");
+                purchase.mProductID = rs.getInt("ProductId");
+                purchase.mPrice = rs.getDouble("Price");
+                purchase.mQuantity = rs.getDouble("Quantity");
+                purchase.mCost = rs.getDouble("Cost");
+                purchase.mTax = rs.getDouble("Tax");
+                purchase.mTotal = rs.getDouble("Total");
+                purchase.mDate = rs.getString("Date");
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return purchase;
+    }
+
     @Override
     public int savePurchase(PurchaseModel purchase) {
         try {
@@ -173,6 +200,24 @@ public class SQLiteDataAdapter implements IDataAdapter {
         return customer;
     }
 
+    @Override
+    public int saveCustomer(CustomerModel model) {
+        try {
+            String sql = "INSERT INTO Customers VALUES " + model;
+            System.out.println(sql);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+
+        } catch (Exception e) {
+            String msg = e.getMessage();
+            System.out.println(msg);
+            if (msg.contains("UNIQUE constraint failed"))
+                return CUSTOMER_SAVE_FAILED;
+        }
+
+        return CUSTOMER_SAVE_OK;
+    }
+
     public UserModel loadUser(String username) {
         UserModel user = null;
 
@@ -194,6 +239,24 @@ public class SQLiteDataAdapter implements IDataAdapter {
             System.out.println(e.getMessage());
         }
         return user;
+    }
+
+    @Override
+    public int saveUser(UserModel model) {
+        try {
+            String sql = "INSERT INTO Users VALUES " + model;
+            System.out.println(sql);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+
+        } catch (Exception e) {
+            String msg = e.getMessage();
+            System.out.println(msg);
+            if (msg.contains("UNIQUE constraint failed"))
+                return USER_SAVE_FAILED;
+        }
+
+        return USER_SAVE_OK;
     }
 
 }

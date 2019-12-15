@@ -2,23 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8576bed3-2655-4048-af3e-1ac27e9ba67f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ProductListModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductSearchUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PurchaseListModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/C:\Users\ttn0007\Desktop\StoreManager\data\store.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/design.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/~$design.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/Project3.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ProductListModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ProductSearchUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/PurchaseListModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddPurchaseUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddPurchaseUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdminUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdminUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IDataAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManageCustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageCustomerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManageProductUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageProductUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MessageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManageUsersUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ModifyUserInfoUI.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NetworkDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NetworkDataAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OracleDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OracleDataAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PurchaseHistoryUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PurchaseHistoryUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQLiteDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQLiteDataAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StoreServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddPurchaseUI$AddButtonListerner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AddPurchaseUI$AddButtonListerner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddPurchaseUI$CustomerIDFocusListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AddPurchaseUI$CustomerIDFocusListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddPurchaseUI$ProductIDFocusListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AddPurchaseUI$ProductIDFocusListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddPurchaseUI$QuantityChangeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AddPurchaseUI$QuantityChangeListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddPurchaseUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AddPurchaseUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AdminUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AdminUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AdminUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CashierUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CashierUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CustomerUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CustomerUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CustomerUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CustomerUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/IDataAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/IDataAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/INetworkAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginUI$LoginActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginUI$LogoutActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoginUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ManageCustomerUI$LoadButtonListerner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ManageCustomerUI$LoadButtonListerner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ManageCustomerUI$SaveButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ManageCustomerUI$SaveButtonListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ManageProductUI$LoadButtonListerner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ManageProductUI$LoadButtonListerner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ManageProductUI$SaveButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ManageProductUI$SaveButtonListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MessageModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NetworkDataAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/OracleDataAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/OracleDataAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PurchaseHistoryUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SQLiteDataAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SQLiteDataAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SocketNetworkAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoreManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StoreServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TXTReceiptBuilder.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,13 +183,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/SQLiteDataAdapter.java</url>
-          <line>175</line>
-          <properties class="SQLiteDataAdapter">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LoginUI.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -36,13 +36,13 @@ public class AdminUI {
 
         view.getContentPane().add(panelButtons);
 
-        btnManageUsers.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                ManageUsersUI ui = new ManageUsersUI();
-                ui.run();
-            }
-        });
+//        btnManageUsers.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent actionEvent) {
+//                ManageUsersUI ui = new ManageUsersUI();
+//                ui.run();
+//            }
+//        });
 
         btnSystemConfig.addActionListener(new ActionListener() {
             @Override

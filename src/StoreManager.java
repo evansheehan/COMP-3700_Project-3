@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class StoreManager {
     public static String dbms = "SQLite";
-    public static String path = "C:\\Users\\ttn0007\\Desktop\\StoreManager\\data\\store.db";
+    public static String path = "./data/store.db";
 
     IDataAdapter dataAdapter = null;
     private static StoreManager instance = null;

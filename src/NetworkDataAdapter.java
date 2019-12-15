@@ -66,6 +66,12 @@ public class NetworkDataAdapter implements IDataAdapter {
     }
 
     @Override
+    public int saveCustomer(CustomerModel model) {return 0;}
+
+    @Override
+    public PurchaseModel loadPurchase(int id) {return null;}
+
+    @Override
     public int savePurchase(PurchaseModel model) {
         return 0;
     }
@@ -122,6 +128,8 @@ public class NetworkDataAdapter implements IDataAdapter {
         else {
             return gson.fromJson(msg.data, UserModel.class);
         }
-
     }
+
+    @Override
+    public int saveUser(UserModel user) {return 0;}
 }
